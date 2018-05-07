@@ -16,11 +16,11 @@
     <% @lectures.each do |lecture| %>
       <tr>
         <td><%= lecture.content %></td>
-        <td><%= lecture.file %></td>
         <td><%= lecture.course.title%></td>
         <td><%= link_to 'Show', lecture %></td>
         <td><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
         <td><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Download file', lecture.file.url%></td>
       </tr>
     <% end %>
   </tbody>

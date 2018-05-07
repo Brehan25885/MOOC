@@ -60,6 +60,16 @@ class LecturesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def downloadfrompdf
+
+    file_type=params[:file]
+
+    lec = Lecture.find_by_name(file_type)
+    actual_file_name=lec.file.to_s
+    file = File.join(Rails.root, 'public',actual_file_name)
+    send_file(file, file: 'My-Form.pdf', type: 'application/pdf')
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,4 +81,5 @@ class LecturesController < ApplicationController
     def lecture_params
       params.require(:lecture).permit(:content, :file, :course_id)
     end
+
 end

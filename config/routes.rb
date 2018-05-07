@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :lectures
+  resources :lectures do
+member do
+  get :downloadfrompdf
+end 
+  end
   devise_for :users
   resources :courses
   root 'courses#index'

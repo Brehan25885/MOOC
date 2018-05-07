@@ -7,7 +7,7 @@
 <% @lectures.each do |lec| %>
   <tr>
   <td><%= lec.content %></td>
-    <td><%= lec.file %></td>
+ <td> <%= link_to 'Download file', lec.file.url%></td>
 
   </tr>
   <% end %>  
