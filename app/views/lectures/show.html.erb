@@ -2,7 +2,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @lecture.content %>
+  <%= raw @lecture.content %>
 </p>
 
 <p>
@@ -11,10 +11,13 @@
 ', @lecture.file.url%>
 
 </p>
-<p>
+<span><%= link_to 'Edit', edit_lecture_path(@lecture) %> </span>
+<span>
   <%= link_to 'spam',spam_lecture_path(@lecture), method: :POST%>
 
-</p>
+</span>
+<br>
+<br>
 <p>
 <span>like</span>
 <span>
@@ -39,5 +42,4 @@
 <%= render @lecture.comments%>
 <h3> Add a comment: </h3>
 <%= render "comments/form"%>
-<%= link_to 'Edit', edit_lecture_path(@lecture) %> |
 <%= link_to 'Back', lectures_path %>
