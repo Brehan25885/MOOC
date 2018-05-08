@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :lectures do
 member do
   get :downloadfrompdf
   put "like" => "lectures#upvote"
   put "unlike" => "lectures#downvote"
+  post :spam
+
 end  
 resources :comments
   end

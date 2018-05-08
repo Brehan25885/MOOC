@@ -12,6 +12,11 @@
 
 </p>
 <p>
+  <%= link_to 'spam',spam_lecture_path(@lecture), method: :POST%>
+
+</p>
+<p>
+<span>like</span>
 <span>
 <%= link_to like_lecture_path(@lecture), class:"like", method: :put do%>
 <button>
@@ -19,6 +24,7 @@
 </button>
 <% end%>
 </span>
+<span>dislike</span>
 <span>
 <%= link_to unlike_lecture_path(@lecture), class:"like", method: :put do%>
 <button>

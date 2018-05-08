@@ -87,6 +87,13 @@ class LecturesController < ApplicationController
 
   end
 
+
+
+  def spam 
+    @lecture = Lecture.find(params[:id])
+    current_user.lectures << @lecture unless current_user.lectures.include? @lecture
+ end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lecture
