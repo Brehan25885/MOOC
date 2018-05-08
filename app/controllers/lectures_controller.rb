@@ -1,5 +1,6 @@
 class LecturesController < ApplicationController
-  before_action :set_lecture, only: [:show, :edit, :update, :destroy]
+  before_action :set_lecture, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :authenticate_user!
 
   # GET /lectures
   # GET /lectures.json
@@ -71,6 +72,21 @@ class LecturesController < ApplicationController
 
   end
 
+
+  def upvote
+    @lecture.upvote_from current_user
+    redirect_to lecture_path(@lecture)
+
+
+  end
+
+  def downvote
+    @lecture.downvote_from current_user
+    redirect_to lecture_path(@lecture)
+
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lecture
@@ -81,5 +97,6 @@ class LecturesController < ApplicationController
     def lecture_params
       params.require(:lecture).permit(:content, :file, :course_id)
     end
+
 
 end

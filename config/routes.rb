@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :lectures do
 member do
   get :downloadfrompdf
+  put "like" => "lectures#upvote"
+  put "unlike" => "lectures#downvote"
 end  
 resources :comments
   end

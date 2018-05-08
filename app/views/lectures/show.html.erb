@@ -11,11 +11,24 @@
 ', @lecture.file.url%>
 
 </p>
-
 <p>
-  <strong>Course:</strong>
-  <%= @lecture.course_id %>
+<span>
+<%= link_to like_lecture_path(@lecture), class:"like", method: :put do%>
+<button>
+<span><%= @lecture.get_upvotes.size %> </span>
+</button>
+<% end%>
+</span>
+<span>
+<%= link_to unlike_lecture_path(@lecture), class:"like", method: :put do%>
+<button>
+<span><%= @lecture.get_downvotes.size %> </span>
+</button>
+<% end%>
+</span>
 </p>
+
+
 <h2><%= @lecture.comments.count%> Comments</h2>
 <%= render @lecture.comments%>
 <h3> Add a comment: </h3>

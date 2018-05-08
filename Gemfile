@@ -59,5 +59,6 @@ group :test do
 end
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
+gem 'acts_as_votable', '~> 0.11.1'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
