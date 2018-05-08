@@ -7,7 +7,8 @@
 
 <p>
   <strong>File:</strong>
-<%= link_to 'Download file', @lecture.file.url%>
+<%= link_to 'Download file
+', @lecture.file.url%>
 
 </p>
 
@@ -15,6 +16,9 @@
   <strong>Course:</strong>
   <%= @lecture.course_id %>
 </p>
-
+<h2><%= @lecture.comments.count%> Comments</h2>
+<%= render @lecture.comments%>
+<h3> Add a comment: </h3>
+<%= render "comments/form"%>
 <%= link_to 'Edit', edit_lecture_path(@lecture) %> |
 <%= link_to 'Back', lectures_path %>

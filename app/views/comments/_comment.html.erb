@@ -1,0 +1,10 @@
+<%= comment.user.name%> <br>
+<%= comment.body %>
+<%= time_ago_in_words(comment.created_at)%>
+<br>
+<p>
+    <% if user_signed_in? %>
+<%= link_to 'Delete', [comment.lecture,comment], method: :delete, data: {confirm: 'Are you sure' }%>
+    <% end %>
+
+</p>

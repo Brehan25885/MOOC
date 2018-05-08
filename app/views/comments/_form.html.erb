@@ -1,0 +1,10 @@
+<%= form_for ([@user,@lecture,@lecture.comments.build]) do |f|%>
+
+<p>
+<%= f.text_area :body %>
+</p>
+<br>
+<p>
+<%= f.submit  %>
+</p>
+<% end %>
